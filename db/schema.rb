@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2022_02_18_045834) do
   create_table "cart_line_items", force: :cascade do |t|
     t.integer "product_id"
     t.integer "qty"
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
@@ -67,8 +66,6 @@ ActiveRecord::Schema.define(version: 2022_02_18_045834) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "is_admin"
-    t.string "first_name"
-    t.string "last_name"
     t.text "email"
     t.integer "phone"
     t.text "address"
