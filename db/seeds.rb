@@ -9,3 +9,4 @@ u2 = User.create! first_name: "Stanley", last_name: "Chin",email: "steven@ga.co"
 u3 = User.create! first_name: "Frankie", last_name: "Tsoi",email: "franki@ga.co", phone: "047895098", address: "8 st mountanen", password_digest: "chicken", is_admin: false
 
 puts "created #{User.count} users."
+
