@@ -7,9 +7,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+
   </head>
 
   <body>
+  <h1>Lucky Asian Grocey Back End</h1>
+  <h2>ADMIN</h2>
+  <%= link_to "Home", root_path %>
+  <%# <%= link_to "All users", users_path %> 
     <%= yield %>
   </body>
 </html>
