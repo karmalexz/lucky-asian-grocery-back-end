@@ -61,7 +61,7 @@ c5=Category.create!(
 c6=Category.create!(
   name: 'Instant Food'
 )
-c2=Category.create!(
+c7=Category.create!(
   name: 'Household'
 )
 
