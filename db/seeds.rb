@@ -41,3 +41,12 @@ p3 = Product.create!(
 )
 
 puts "created #{Product.count} product."
+
+Category.destroy_all
+c1=Category.create!(
+  name: 'Vegetables/Fruits'
+)
+c2=Category.create!(
+  name: 'Skincare'
+)
+puts "created #{Category.count} categories."
