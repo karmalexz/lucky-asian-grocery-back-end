@@ -47,6 +47,22 @@ c1=Category.create!(
   name: 'Vegetables/Fruits'
 )
 c2=Category.create!(
-  name: 'Skincare'
+  name: 'Health/Beauty'
 )
+c3=Category.create!(
+  name: 'Snacks/Sweets'
+)
+c4=Category.create!(
+  name: 'Drinks'
+)
+c5=Category.create!(
+  name: 'Frozen'
+)
+c6=Category.create!(
+  name: 'Instant Food'
+)
+c2=Category.create!(
+  name: 'Household'
+)
+
 puts "created #{Category.count} categories."
