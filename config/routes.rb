@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
  
   post 'user_token' => 'user_token#create'
-  #Session Form
-  # get '/login' => 'sessions#new'
-  # post '/login' => 'sessions#create'
-  # delete '/login' => 'sessions#destroy'
+  # Session Form
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/login' => 'sessions#destroy'
 
   #Get the login token from Knock
   post 'user_token' => 'user_token#create'
