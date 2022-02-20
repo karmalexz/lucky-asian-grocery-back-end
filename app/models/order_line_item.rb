@@ -1,6 +1,6 @@
 class OrderLineItem < ApplicationRecord
-    belong_to :user
-    belong_to :order
+    belongs_to :user
+    belongs_to :order
 
 
 end

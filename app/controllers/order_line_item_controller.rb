@@ -1,3 +1,0 @@
-class OrderLineItemController < ApplicationController
-  
-end
