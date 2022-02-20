@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_if_logged_in_and_admin
   #GET /user
   #GET /users.json
   def index
@@ -42,6 +42,6 @@ private
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :phone, :address, :password)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :address, :phone)
     end
 end
