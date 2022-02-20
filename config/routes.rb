@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/products/:id/delete' => 'products#destroy', as: 'destroy_product'
   resources :products
   resources :categories
+  resources :cart
 end
