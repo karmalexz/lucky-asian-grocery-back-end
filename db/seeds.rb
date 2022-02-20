@@ -66,3 +66,50 @@ c7=Category.create!(
 )
 
 puts "created #{Category.count} categories."
+
+##################################################
+
+print "creating order..."
+
+Order.destroy_all
+
+o1 = Order.create!(
+  
+  address: '10 Smith St',
+  status: 0
+)
+
+o2 = Order.create!(
+  
+  address: '11 Smith St',
+  status: 1
+)
+
+u0.orders << o1
+u1.orders << o2
+
+
+puts "created #{Order.count} orders."
+
+#################################################
+
+print "creating order line items..."
+
+OrderLineItem.destroy_all
+
+oli1 = OrderLineItem.create!(
+  user_id: u0.id,
+  order_id: o1.id,
+  qty: 1
+)
+
+oli2 = OrderLineItem.create!(
+  user_id: u1.id,
+  order_id: o2.id,
+  qty: 1
+)
+
+
+puts "created #{OrderLineItem.count} order line items."
+
+#######################################################
