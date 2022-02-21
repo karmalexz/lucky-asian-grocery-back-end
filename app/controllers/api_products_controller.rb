@@ -1,6 +1,6 @@
-class ApiproductsController < ApplicationController
+class ApiProductsController < ApplicationController
   
-  before_action :authenticate_user
+  before_action :authenticate_user, only:[:show, :edit, :updated, :destroy]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -14,15 +14,12 @@ class ApiproductsController < ApplicationController
 
   def index
     @products = Product.all
+    render json: @products
   end
 
   def show
     @product = Product.find params[:id]
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @product.to_json }
-    end
-    
+    render json: @product
   end
 
   def edit

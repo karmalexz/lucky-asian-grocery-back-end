@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cart
+  
+  # these are all API routes for the React frontend
+  get '/api/products' => 'api_products#index'
+
 end

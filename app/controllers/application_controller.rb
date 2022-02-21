@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     include Knock::Authenticable
 
 
-    # before_action :authenticate_user #move this to separate controllers
+    # before_action :authenticate_user
     
     def current
         render json: current_user
