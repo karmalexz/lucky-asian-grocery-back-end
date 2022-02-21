@@ -23,5 +23,6 @@ Rails.application.routes.draw do
   
   # these are all API routes for the React frontend
   get '/api/products' => 'api_products#index'
+  get '/api/products/:id' =>  'api_products#show'
 
 end
