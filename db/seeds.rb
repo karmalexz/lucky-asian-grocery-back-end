@@ -39,6 +39,41 @@ p3 = Product.create!(
   stock: 100,
   image: 'IMG_nobg-lotion.png'
 )
+p4 = Product.create!(
+  name: 'Omo Liquid Laundry Detergent ',
+  price: 32,
+  description: 'We believe that Dirt is Good. Its how kids learn, express their creativity  even bolster their immune systems. Omo laundry detergent will get it clean.',
+  stock: 334,
+  image: 'https://m.media-amazon.com/images/I/41+ZLBh-zeL._AC_SY1000_.jpg'
+)
+p5 = Product.create!(
+  name: 'Dyson',
+  price: 860,
+  description: 'What is the best Dyson vacuum cleaner? ... All Dyson vacuum cleaners are engineered to deep clean your home. Our bagless vacuum cleaner technology is designed and relentlessly tested for powerful suction on all floor types.',
+  stock: 887,
+  image: 'https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/us/campaigns/lm-assets/Shop-by-format-Cordless-3.jpg?cropPathE=mobile&fit=stretch,1&fmt=pjpeg&wid=640'
+)
+p6 = Product.create!(
+  name: 'Pine o Clean ',
+  price: 12,
+  description: 'Proven to kill 99.9% of germs/bacteria* and viruses^ (including flu virus^^), cuts through grease & grime and leaves a brilliant shine!.',
+  stock: 200,
+  image: 'https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/LE8142633_pine_o_cleen_antibacterial_disinfectant_eucalyptus_500ml.jpg'
+)
+p7 = Product.create!(
+  name: 'Omo Liquid Laundry Detergent ',
+  price: 22,
+  description: 'We believe that Dirt is Good. Its how kids learn, express their creativity and even bolster their immune systems. Omo laundry detergent will get it clean….',
+  stock: 100,
+  image: 'https://m.media-amazon.com/images/I/41+ZLBh-zeL._AC_SY1000_.jpg'
+)
+p8 = Product.create!(
+  name: 'Earth Choice ',
+  price: 16,
+  description: 'Clean, protect and restore shine to wooden floors and surfaces, with antibacterial properties to fight bacteria. Plant-based ingredients. Grey water safe.',
+  stock: 241,
+  image: 'https://naturesorganics.com.au/app/uploads/2018/10/20201001_EarthChoice_WoodenFloorSurface725mLWeb-593x800.png'
+)
 
 puts "created #{Product.count} product."
 
@@ -74,19 +109,77 @@ print "creating order..."
 Order.destroy_all
 
 o1 = Order.create!(
-  
+  # user_id: u1.id,
   address: '10 Smith St',
   status: 0
+  
 )
 
 o2 = Order.create!(
+
   
   address: '11 Smith St',
   status: 1
 )
 
 u0.orders << o1
-u1.orders << o2
+u0.orders << o2
+
+o3 = Order.create!(
+  address: '16 Smith St',
+  status: 1
+
+)
+u1.orders << o3
+
+o4 = Order.create!(
+  address: '120 Smith St',
+  status: 1
+)
+
+u2.orders << o4
+
+o5 = Order.create!(
+  address: '16 calene St',
+  status: 1
+)
+
+u3.orders << o5
+
+
+o6 = Order.create!(
+  address: '242 Smith St',
+  status: 1
+)
+
+u2.orders << o6
+
+o7 = Order.create!(
+  address: '16 Smith St',
+  status: 1
+)
+
+u1.orders << o7
+o8 = Order.create!(
+  address: '16 Smith St',
+  status: 1
+)
+
+u3.orders << o8
+
+
+o9 = Order.create!(
+  address: '16 Smith St',
+  status: 1
+)
+
+u2.orders << o9
+o10 = Order.create!(
+  address: '16 Smith St',
+  status: 1
+)
+
+u3.orders << o10
 
 
 puts "created #{Order.count} orders."
