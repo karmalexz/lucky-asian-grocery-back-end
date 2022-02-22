@@ -8,6 +8,18 @@ class ProductsController < ApplicationController
 
   def create
     Product.create product_params
+    @product = Product.new product_params
+
+    if params[:product][:image].present?
+      # Forward the uploaded image on to Cloudinary (using the gem):
+      response = Cloudinary::Uploader.upload params[:product][:image]
+      p response  # so we can see what the response looks like
+      @product.image = response["public_id"] # add to the item we are saving
+    end  # upload check
+    # @product.user_id = @current_user.id
+    @product.save
+    # to do :checkvalidation and show errors on form (mixtapes controller)
+   
     redirect_to products_path
   end
 
@@ -31,6 +43,11 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find params[:id]
     @product.update product_params
+    if params[:product][:image].present?
+      response = Cloudinary::Uploader.upload params[:product][:image]
+      p response
+      product.image = response["public_id"]
+    end
     redirect_to product_path(params[:id])
   end
 
