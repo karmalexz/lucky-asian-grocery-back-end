@@ -13,6 +13,12 @@
     <strong>Stock:</strong>
     <%= @product.stock %>
   </p>
+  <% if @product.image.present? %>
+  <%= cl_image_tag @product.image, alt: @product.description, class: "product_image" %>
+  <% end %>
+
+  
+
 
   <p>
     <strong>Price:</strong> $
@@ -20,7 +26,7 @@
   </p>
 
   <% if @product.image.present? %>
-    <%= image_tag @product.image, class: 'products_image' %>
+    <%= cl_image_tag @product.image, class: 'products_image' %>
       <%end%>
         <br>
 
