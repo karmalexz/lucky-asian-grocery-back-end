@@ -14,9 +14,12 @@
   </thead>
 
   <tbody>
+
     <% @products.each do |p| %>
       <tr>
-        <td><%= image_tag(p.image) %></td>
+      
+       <td> <%= cl_image_tag p.image %> </td>
+
         <td><%= p.name %></td>
         <td>$<%= p.price %></td>
         <td><%= p.stock %></td>
