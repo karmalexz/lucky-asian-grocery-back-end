@@ -20,8 +20,19 @@ Rails.application.routes.draw do
   resources :orders
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cart
+
+  #Cart Routes
+  post '/cart' => 'cart#add_qty', as: 'add_qty'
+
+  post '/cart/update_qty/:product_id'  => 'cart#update_qty', as: 'update_cart_qty'
+  
+  post '/cart/add/:product_id' => 'cart#add', as: 'add_item'
+  
+  delete '/cart/destroy/:product_id'  => 'cart#destroy', as: 'delete_line_item'
+
   
   # these are all API routes for the React frontend
   get '/api/products' => 'api_products#index'
+  get '/api/products/:id' =>  'api_products#show'
 
 end
