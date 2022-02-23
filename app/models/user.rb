@@ -1,7 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :cartLineItems
+    has_many :cart_line_items
     has_many :orderLineItems
     has_many :orders
+    has_many :products
 
 end
