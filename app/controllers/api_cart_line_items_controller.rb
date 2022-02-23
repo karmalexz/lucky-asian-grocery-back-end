@@ -3,17 +3,19 @@ class ApiCartLineItemsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @product = []
-    current_user.cart_line_items.each do | i |
-       @product.push i.product
-        # puts i.product.image
-    end
+    # @product = []
+    # current_user.cart_line_items.each do | i |
+    #    @product.push i.product
+    #     # puts i.product.image
+    # end
 
     # puts "****&&&&&", @product
 
     # render json: current_user.cart_line_items 
-    render json: {product: @product, cart: current_user.cart_line_items}
 
+
+    # render json: {product: @product, cart: current_user.cart_line_items}
+    render json: current_user.cart_line_items, include: :product
     
     
   end
