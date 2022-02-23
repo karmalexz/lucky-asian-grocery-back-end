@@ -30,6 +30,8 @@ class ApiCartLineItemsController < ApplicationController
   def update_qty
     @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
     @cartlineitem.update qty: params[:qty]
+    
+    render json: @cartlineitem
 
     # redirect_to api_cart_path
   end
