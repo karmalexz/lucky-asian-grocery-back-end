@@ -6,4 +6,5 @@ class CartLineItem < ApplicationRecord
         @total = self.product.price * self.qty
     end
 
+    validates :product_id, uniqueness: {scope: :product_id}
 end

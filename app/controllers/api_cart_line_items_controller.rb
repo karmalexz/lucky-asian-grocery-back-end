@@ -3,17 +3,19 @@ class ApiCartLineItemsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @product = []
-    current_user.cart_line_items.each do | i |
-       @product.push i.product
-        # puts i.product.image
-    end
+    # @product = []
+    # current_user.cart_line_items.each do | i |
+    #    @product.push i.product
+    #     # puts i.product.image
+    # end
 
     # puts "****&&&&&", @product
 
     # render json: current_user.cart_line_items 
-    render json: {product: @product, cart: current_user.cart_line_items}
 
+
+    # render json: {product: @product, cart: current_user.cart_line_items}
+    render json: current_user.cart_line_items, include: :product
     
     
   end
@@ -26,8 +28,11 @@ class ApiCartLineItemsController < ApplicationController
   
 
   def update_qty
-    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
+    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id]) 
+    puts 'LOOK AT THIS', @cartlineitem
     @cartlineitem.update qty: params[:qty]
+    
+    render json: @cartlineitem
 
     # redirect_to api_cart_path
   end
@@ -36,6 +41,7 @@ class ApiCartLineItemsController < ApplicationController
   def destroy
     @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
     @cartlineitem.destroy
+    render json: @cartlineitem
 
     # redirect_to api_cart_path
   end

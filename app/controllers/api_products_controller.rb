@@ -14,10 +14,10 @@ class ApiProductsController < ApplicationController
       # Forward the uploaded avatar on to Cloudinary (using the gem):
       response = Cloudinary::Uploader.upload params[:product][:image]
       p response  # so we can see what the response looks like
-      @product.image = response["public_id"
-    redirect_to products_path
-
-      end
+      @product.image = response["public_id"]
+      redirect_to products_path
+    end
+    
   end
 
   def index

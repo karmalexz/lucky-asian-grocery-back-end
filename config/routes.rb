@@ -23,13 +23,15 @@ Rails.application.routes.draw do
 
   #Cart Routes
   get '/api/cart' => 'api_cart_line_items#index'
-  post '/api/cart' => 'api_cart_line_items#add_qty', as: 'add_qty'
+  # post '/api/cart' => 'api_cart_line_items#add_qty', as: 'add_qty'
 
-  post '/api/cart/update_qty/:product_id'  => 'api_cart#update_qty', as: 'update_cart_qty'
+  post '/api/cart/update_qty/:product_id'  => 'api_cart_line_items#update_qty', as: 'update_cart_qty'
   
   post '/api/cart/add/:product_id' => 'api_cart_line_items#add', as: 'add_item'
   
-  delete '/cart/destroy/:product_id'  => 'api_cart#destroy', as: 'delete_line_item'
+  delete '/api/cart/destroy/:product_id'  => 'api_cart_line_items#destroy', as: 'delete_line_item'
+
+  post '/api/order/add/:cart_line_items_id' => 'api_order_line_items#add', as: 'add_order_line_items'
 
   
   # these are all API routes for the React frontend
