@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/api/cart' => 'api_cart_line_items#index'
   # post '/api/cart' => 'api_cart_line_items#add_qty', as: 'add_qty'
 
-  # post '/api/cart/:update_qty/:product_id'  => 'api_cart_line_items#update_qty', as: 'update_cart_qty'
+  post '/api/cart/update_qty/:product_id'  => 'api_cart_line_items#update_qty', as: 'update_cart_qty'
   
   post '/api/cart/add/:product_id' => 'api_cart_line_items#add', as: 'add_item'
   

@@ -28,7 +28,8 @@ class ApiCartLineItemsController < ApplicationController
   
 
   def update_qty
-    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
+    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id]) 
+    puts 'LOOK AT THIS', @cartlineitem
     @cartlineitem.update qty: params[:qty]
     
     render json: @cartlineitem
@@ -40,6 +41,7 @@ class ApiCartLineItemsController < ApplicationController
   def destroy
     @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
     @cartlineitem.destroy
+    render json: @cartlineitem
 
     # redirect_to api_cart_path
   end
