@@ -28,20 +28,25 @@ class ApiCartLineItemsController < ApplicationController
   
 
   def update_qty
-    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id]) 
+    # @cartlineitem = CartLineItem.find params[:id]
+    item = current_user.cart_line_items.find_by product_id: params[:product_id]
     puts 'LOOK AT THIS', @cartlineitem
-    @cartlineitem.update qty: params[:qty]
-    
-    render json: @cartlineitem
+    #check if quantity doesnt fall below -1
+    while params[:qty] > 0
+      item.update qty: params[:qty]
+    else 
+      flash[:alert] = "Can't go below zero"
+    end
+    render json: item
 
     # redirect_to api_cart_path
   end
   
   
   def destroy
-    @cartlineitem = CartLineItem.find_by(product_id: params[:product_id])
-    @cartlineitem.destroy
-    render json: @cartlineitem
+    item = current_user.cart_line_items.find_by(product_id: params[:product_id])
+    item.destroy
+    render json: item
 
     # redirect_to api_cart_path
   end

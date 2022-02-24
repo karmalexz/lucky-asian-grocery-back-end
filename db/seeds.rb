@@ -101,7 +101,7 @@ c7=Category.create!(
 )
 
 puts "created #{Category.count} categories."
-
+#cateogoreis have many products association - Suraj 
 ##################################################
 
 print "creating order..."
