@@ -47,6 +47,7 @@ class ProductsController < ApplicationController
       response = Cloudinary::Uploader.upload params[:product][:image]
       p response
       @product.image = response["public_id"]
+      @product.save
     end
     redirect_to product_path(params[:id])
   end
