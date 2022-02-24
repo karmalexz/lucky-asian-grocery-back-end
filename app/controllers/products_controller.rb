@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 
+
   def new
     @product = Product.new
   end
@@ -46,7 +47,7 @@ class ProductsController < ApplicationController
     if params[:product][:image].present?
       response = Cloudinary::Uploader.upload params[:product][:image]
       p response
-      product.image = response["public_id"]
+      @product.image = response["public_id"]
     end
     redirect_to product_path(params[:id])
   end
@@ -65,7 +66,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   def product_params
-    params.require(:product).permit(:name, :price, :description, :image, :stock )
+    params.require(:product).permit(:name, :price, :description, :category_id, :image, :stock )
   end # of private
 
 end#of class
+

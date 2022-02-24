@@ -103,7 +103,7 @@ c7=Category.create!(
 puts "created #{Category.count} categories."
 #cateogoreis have many products association - Suraj 
 ##################################################
-
+c1.products << p1<<p2<<p3<<p4<<p5<<p6<<p7<<p8
 print "creating order..."
 
 Order.destroy_all
