@@ -32,9 +32,9 @@ class ApiCartLineItemsController < ApplicationController
     item = current_user.cart_line_items.find_by product_id: params[:product_id]
     puts 'LOOK AT THIS', @cartlineitem
     #check if quantity doesnt fall below -1
-    while params[:qty] > 0
+    if params[:qty] >= 1
       item.update qty: params[:qty]
-    else 
+    else
       flash[:alert] = "Can't go below zero"
     end
     render json: item
