@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   post '/api/order/add/:cart_line_items_id' => 'api_order_line_items#add', as: 'add_order_line_items'
 
-  get '/api/order' => 'api_order_line_items#index', as: 'index_order_line_items'
+  get '/api/order/:order_line_items_id' => 'api_order_line_items#index', as: 'index_order_line_items'
 
 
   

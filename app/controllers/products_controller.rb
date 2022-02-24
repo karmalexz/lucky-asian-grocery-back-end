@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
     if params[:product][:image].present?
       response = Cloudinary::Uploader.upload params[:product][:image]
       p response
-      product.image = response["public_id"]
+      @product.image = response["public_id"]
     end
     redirect_to product_path(params[:id])
   end
