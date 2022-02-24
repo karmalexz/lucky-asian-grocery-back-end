@@ -13,12 +13,14 @@
     <strong>Stock:</strong>
     <%= @product.stock %>
   </p>
+
+   <p>
+    <strong>Category:</strong>
+    <%= link_to @product.category.name, category_path(@product.category.id) %>
+  </p>
   <% if @product.image.present? %>
   <%= cl_image_tag @product.image, alt: @product.description, class: "product_image" %>
   <% end %>
-
-  
-
 
   <p>
     <strong>Price:</strong> $

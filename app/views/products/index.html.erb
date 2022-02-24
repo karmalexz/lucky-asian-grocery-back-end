@@ -9,6 +9,9 @@
       <th>Name</th>
       <th>Price</th>
       <th>InStock</th>
+      <% @products.each do |product|%>
+      <th><%= link_to product.category.name, category_url(product.category_id) %></th>
+      <% end%>
       <th colspan="3"></th>
     </tr>
   </thead>
