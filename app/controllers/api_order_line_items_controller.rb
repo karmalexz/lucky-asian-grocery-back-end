@@ -3,8 +3,8 @@ class ApiOrderLineItemsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @order_line_items = OrderLineItem.all
-    render json: @order_line_items
+    @order_line_items = OrderLineItem.all 
+    render json: order_line_items
 
   end
 

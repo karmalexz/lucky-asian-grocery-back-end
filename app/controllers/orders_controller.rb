@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find params[:id]
-    render json: order, include: :order_line_items
+    render json: @order, include: :order_line_items
     
   end
 
@@ -31,5 +31,19 @@ class OrdersController < ApplicationController
     render json: order, include: :order_line_items
     #return object that works with
   end
+  
+  def update
+    order = Order.find params[:id]
+    if order.update status: :paid
+      order.save
+      render json: order, include :order_line_items
+    else
+      flash[:error] = "No Order Found"
+    end
+  end
+
+  private 
+
 
 end
+
